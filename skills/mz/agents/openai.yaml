@@ -1,0 +1,4 @@
+interface:
+  display_name: "MZ (default)"
+  short_description: "짧은데 피식 — $mz"
+  default_prompt: "Use $mz — MZ Caveman default. Collapse first, ONE meme-like verdict line. Not ultra spam."

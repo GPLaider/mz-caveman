@@ -9,11 +9,28 @@ Optional chaos mode: **`/mzu`** — max MZ spam, barely work-usable on purpose.
 Inspired by [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) (token compression).  
 MZ layer = Korean Gen-Z / 2026 stamp culture + judgment one-liners.
 
-| Mode | Trigger | Vibe |
-|------|---------|------|
-| **default** | `/mz` | Collapse + **one** 판정 한 줄 |
-| **ultra** | `/mzu` · `/mz ultra` | MZ 난사. Comedy chaos. |
-| **off** | `stop mz` · `normal mode` | Normal prose |
+| Mode | Grok | Codex | Vibe |
+|------|------|-------|------|
+| **default** | `/mz` | **`$mz`** · `$mz-caveman` | Collapse + **one** 판정 한 줄 |
+| **ultra** | `/mzu` · `/mz ultra` | **`$mzu`** · `$mz-caveman` + ultra | MZ 난사. Comedy chaos. |
+| **off** | `stop mz` · `normal mode` | same | Normal prose |
+
+### Codex: `/mzu` 치면 터짐 (국룰)
+
+Codex **built-in slash** ≠ skill.  
+`/mzu` → `Unrecognized command` = **정상**. 스킬 없음 아님.
+
+```text
+# 맞음 (Codex)
+$mzu
+$mz
+$mz-caveman
+
+# 틀림 (Codex slash — 거부됨)
+/mzu
+```
+
+Grok 쪽은 `/mz` · `/mzu` slash OK.
 
 > Identity is the **last line**, not Core 40.  
 > `감으로 패치? 컷.` — few tokens, full info, memorable.
@@ -52,7 +69,8 @@ cp mz-caveman/skills/mz-caveman/SKILL.md ~/.codex/skills/mz-caveman/SKILL.md
 cp mz-caveman/agents/openai.yaml ~/.codex/skills/mz-caveman/agents/openai.yaml
 ```
 
-Codex: `$mz` · `$mzu`
+Codex: **`$mz`** · **`$mzu`** · `$mz-caveman`  
+(폴더 3개: `skills/mz`, `skills/mzu`, `skills/mz-caveman`)
 
 See [INSTALL.md](./INSTALL.md) for details.
 
@@ -95,9 +113,11 @@ Hard floors: code blocks, CLI, errors, commit/PR bodies, security/data-loss warn
 ## Repo layout
 
 ```text
-SKILL.md                 # canonical skill (same as skills/mz-caveman/)
-skills/mz-caveman/       # Grok / skills-dir install path
-agents/openai.yaml       # Codex UI metadata
+SKILL.md                      # canonical (same as skills/mz-caveman/)
+skills/mz-caveman/            # full skill
+skills/mz/                    # Codex alias → $mz (default)
+skills/mzu/                   # Codex alias → $mzu (ultra)
+agents/openai.yaml            # Codex UI for mz-caveman
 INSTALL.md
 LICENSE
 ```

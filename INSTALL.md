@@ -25,21 +25,27 @@ Triggers: `/mz` · `/mzu` · `/mz ultra` · `stop mz`
 
 ## Codex (user-global)
 
-Target:
+**중요:** Codex skill 호출은 **`$name`**. `/mzu` slash는 built-in만 됨 → `Unrecognized command` 정상.
 
-- `~/.codex/skills/mz-caveman/SKILL.md`
-- `~/.codex/skills/mz-caveman/agents/openai.yaml`
+Install **three** skill folders so `$mz`, `$mzu`, `$mz-caveman` all resolve:
 
-### PowerShell
+### PowerShell (full)
 
 ```powershell
-$root = "$env:USERPROFILE\.codex\skills\mz-caveman"
-New-Item -ItemType Directory -Force -Path "$root\agents" | Out-Null
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/GPLaider/mz-caveman/main/skills/mz-caveman/SKILL.md" -OutFile "$root\SKILL.md" -UseBasicParsing
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/GPLaider/mz-caveman/main/agents/openai.yaml" -OutFile "$root\agents\openai.yaml" -UseBasicParsing
+$base = "$env:USERPROFILE\.codex\skills"
+$repo = "https://raw.githubusercontent.com/GPLaider/mz-caveman/main"
+foreach ($n in @("mz-caveman","mz","mzu")) {
+  New-Item -ItemType Directory -Force -Path "$base\$n\agents" | Out-Null
+  Invoke-WebRequest -Uri "$repo/skills/$n/SKILL.md" -OutFile "$base\$n\SKILL.md" -UseBasicParsing
+}
+# openai.yaml: root agents for mz-caveman; per-skill for aliases
+Invoke-WebRequest -Uri "$repo/agents/openai.yaml" -OutFile "$base\mz-caveman\agents\openai.yaml" -UseBasicParsing
+Invoke-WebRequest -Uri "$repo/skills/mz/agents/openai.yaml" -OutFile "$base\mz\agents\openai.yaml" -UseBasicParsing
+Invoke-WebRequest -Uri "$repo/skills/mzu/agents/openai.yaml" -OutFile "$base\mzu\agents\openai.yaml" -UseBasicParsing
 ```
 
-Triggers: `$mz` · `$mzu` · `/mz` · `/mzu`
+Triggers: **`$mzu`** (ultra) · **`$mz`** (default) · `$mz-caveman`  
+Not: `/mzu` (Codex will reject)
 
 ## Verify
 
