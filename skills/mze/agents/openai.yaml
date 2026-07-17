@@ -1,0 +1,4 @@
+interface:
+  display_name: "MZ Extreme"
+  short_description: "극단 난사 — $mze"
+  default_prompt: "Use $mze — EXTREME max slang spam. Laugh density first. Token cost OK. Do not nerf humor."

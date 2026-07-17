@@ -1,4 +1,4 @@
 interface:
   display_name: "MZ Ultra"
-  short_description: "MZ 난사 — $mzu"
-  default_prompt: "Use $mzu — MZ Caveman ULTRA. Max slang spam, comedy chaos, barely work-usable. Keep code blocks and safety warnings clean."
+  short_description: "쇼츠+피식 — $mzu"
+  default_prompt: "Use $mzu — short AND funny. Meme replaces long prose. Must stay shorter than plain and still 피식."

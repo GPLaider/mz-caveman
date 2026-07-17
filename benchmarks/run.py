@@ -18,7 +18,7 @@ except ImportError:
 ROOT = Path(__file__).resolve().parent
 VARIANTS = ROOT / "variants"
 RESULTS = ROOT / "results"
-MODES = ("plain", "caveman", "mz", "mzu")
+MODES = ("plain", "caveman", "mz", "mzu", "mze")
 ENC = tiktoken.get_encoding("cl100k_base")
 
 
@@ -164,33 +164,30 @@ def render_md(payload: dict, rows: list[Row]) -> str:
 
     lines += [
         "",
-        "## Per case",
+        "## Per case (tokens)",
         "",
-        "| Case | plain | caveman | mz | mzu | caveman save | mz save | mzu save |",
-        "|------|------:|--------:|---:|----:|-------------:|--------:|---------:|",
+        "| Case | plain | caveman | mz | mzu | mze |",
+        "|------|------:|--------:|---:|----:|----:|",
     ]
     cases = payload["meta"]["cases"]
     by = {(r.case, r.mode): r for r in rows}
     for case in cases:
         p = by[(case, "plain")].tokens
-        c = by[(case, "caveman")].tokens
-        mz = by[(case, "mz")].tokens
-        mzu = by[(case, "mzu")].tokens
         lines.append(
-            f"| `{case}` | {p} | {c} | {mz} | {mzu} | "
-            f"{(1 - c / p) * 100:.1f}% | {(1 - mz / p) * 100:.1f}% | {(1 - mzu / p) * 100:.1f}% |"
+            f"| `{case}` | {p} | {by[(case, 'caveman')].tokens} | "
+            f"{by[(case, 'mz')].tokens} | {by[(case, 'mzu')].tokens} | "
+            f"{by[(case, 'mze')].tokens} |"
         )
 
     lines += [
         "",
         "## Reading guide",
         "",
-        "- **plain**: normal agent prose (baseline)",
-        "- **caveman**: pure collapse, no MZ stamps",
-        "- **mz**: collapse + one 피식 verdict (identity)",
-        "- **mzu**: comedy spam — may use *more* tokens than mz/caveman; humor tax",
-        "",
-        "If mzu tokens > plain: expected for chaos mode. Ultra optimizes 피식 density, not always length.",
+        "- **plain**: baseline prose",
+        "- **caveman**: pure collapse",
+        "- **mz**: default — one 피식 verdict",
+        "- **mzu**: ultra short+funny (replace) — target tokens < plain",
+        "- **mze**: extreme spam — laugh first; tokens may rise",
         "",
     ]
     return "\n".join(lines)

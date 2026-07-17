@@ -1,7 +1,7 @@
 {
   "meta": {
     "encoding": "cl100k_base",
-    "generated_at": "2026-07-17T07:37:50.154906+00:00",
+    "generated_at": "2026-07-17T08:15:25.060167+00:00",
     "cases": [
       "01-release-block",
       "02-integ-fail",
@@ -14,7 +14,8 @@
       "plain",
       "caveman",
       "mz",
-      "mzu"
+      "mzu",
+      "mze"
     ],
     "note": "Primary variants come from live parallel subagent sessions (see benchmarks/sessions/MANIFEST.json). Token counts use OpenAI cl100k_base via tiktoken."
   },
@@ -44,6 +45,14 @@
       "char_saved_pct": 28.2
     },
     "mzu": {
+      "tokens": 326,
+      "chars": 372,
+      "token_ratio_vs_plain": 0.4301,
+      "char_ratio_vs_plain": 0.4208,
+      "token_saved_pct": 57.0,
+      "char_saved_pct": 57.9
+    },
+    "mze": {
       "tokens": 1059,
       "chars": 1079,
       "token_ratio_vs_plain": 1.3971,
@@ -89,6 +98,17 @@
     {
       "case": "01-release-block",
       "mode": "mzu",
+      "chars": 65,
+      "lines": 1,
+      "tokens": 60,
+      "token_ratio_vs_plain": 0.4,
+      "char_ratio_vs_plain": 0.4062,
+      "token_saved_pct": 60.0,
+      "char_saved_pct": 59.4
+    },
+    {
+      "case": "01-release-block",
+      "mode": "mze",
       "chars": 185,
       "lines": 1,
       "tokens": 193,
@@ -133,6 +153,17 @@
     {
       "case": "02-integ-fail",
       "mode": "mzu",
+      "chars": 54,
+      "lines": 1,
+      "tokens": 60,
+      "token_ratio_vs_plain": 0.4724,
+      "char_ratio_vs_plain": 0.3724,
+      "token_saved_pct": 52.8,
+      "char_saved_pct": 62.8
+    },
+    {
+      "case": "02-integ-fail",
+      "mode": "mze",
       "chars": 177,
       "lines": 1,
       "tokens": 168,
@@ -177,6 +208,17 @@
     {
       "case": "03-flaky-windows",
       "mode": "mzu",
+      "chars": 60,
+      "lines": 1,
+      "tokens": 53,
+      "token_ratio_vs_plain": 0.5354,
+      "char_ratio_vs_plain": 0.4511,
+      "token_saved_pct": 46.5,
+      "char_saved_pct": 54.9
+    },
+    {
+      "case": "03-flaky-windows",
+      "mode": "mze",
       "chars": 165,
       "lines": 1,
       "tokens": 156,
@@ -221,6 +263,17 @@
     {
       "case": "04-perf-temptation",
       "mode": "mzu",
+      "chars": 60,
+      "lines": 1,
+      "tokens": 49,
+      "token_ratio_vs_plain": 0.3475,
+      "char_ratio_vs_plain": 0.3681,
+      "token_saved_pct": 65.2,
+      "char_saved_pct": 63.2
+    },
+    {
+      "case": "04-perf-temptation",
+      "mode": "mze",
       "chars": 195,
       "lines": 1,
       "tokens": 197,
@@ -265,6 +318,17 @@
     {
       "case": "05-go-nogo-role",
       "mode": "mzu",
+      "chars": 60,
+      "lines": 1,
+      "tokens": 45,
+      "token_ratio_vs_plain": 0.4245,
+      "char_ratio_vs_plain": 0.5172,
+      "token_saved_pct": 57.5,
+      "char_saved_pct": 48.3
+    },
+    {
+      "case": "05-go-nogo-role",
+      "mode": "mze",
       "chars": 167,
       "lines": 1,
       "tokens": 169,
@@ -309,6 +373,17 @@
     {
       "case": "06-cache-bloat",
       "mode": "mzu",
+      "chars": 73,
+      "lines": 1,
+      "tokens": 59,
+      "token_ratio_vs_plain": 0.437,
+      "char_ratio_vs_plain": 0.4371,
+      "token_saved_pct": 56.3,
+      "char_saved_pct": 56.3
+    },
+    {
+      "case": "06-cache-bloat",
+      "mode": "mze",
       "chars": 190,
       "lines": 1,
       "tokens": 176,

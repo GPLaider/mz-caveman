@@ -1,10 +1,17 @@
 # Fork / ultra short+funny experiment
 
+## Naming after remap (2026-07-17)
+
+| Old name | New name |
+|----------|----------|
+| mzu-short (쇼츠) | **`mzu`** (ultra) |
+| freeze mzu 난사 | **`mze`** (extreme) |
+
 ## Law (user)
 
-> 울트라로 줄이면서 웃기게 하고, **안 웃기다면 패치하지 말 것**
+> 줄이면서 웃기게. **안 웃기면 패치하지 말 것** (extreme 웃김 보호)
 
-Ultra laugh identity must not be nerfed to win compression.
+`/mze` laugh identity must not be nerfed to win compression.
 
 ## Freeze (gold laugh)
 
