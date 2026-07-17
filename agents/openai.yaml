@@ -1,0 +1,4 @@
+interface:
+  display_name: "MZ Caveman"
+  short_description: "피식 default / 난사 ultra (/mzu)"
+  default_prompt: "Use $mz-caveman. Default $mz: collapse + ONE verdict line. Ultra $mzu or $mz ultra: max MZ slang spam (comedy chaos, barely work-usable). Never corrupt code blocks, commits, or safety warnings. /mz drops ultra back to default."
