@@ -35,74 +35,73 @@ Grok 쪽은 `/mz` · `/mzu` slash OK.
 > Identity is the **last line**, not Core 40.  
 > `감으로 패치? 컷.` — few tokens, full info, memorable.
 
-## Compression bench (6 cases · cl100k_base)
+## Compression bench (live 4-subagent · cl100k_base)
 
-Curated reference rewrites — not live API samples. Re-run: `python benchmarks/run.py`  
-Full tables: [`benchmarks/results/LATEST.md`](./benchmarks/results/LATEST.md)
+**Not hand-fiction.** Four parallel `general-purpose` subagent sessions rewrote the same 6 fixtures:
 
-### Totals vs plain
+| Mode | Subagent ID | Duration |
+|------|-------------|----------|
+| plain | `019f6f01-fba3-7451-b844-fa21c62ca87b` | 5.5s |
+| caveman | `019f6f01-fba4-7082-b65d-3585db9b201e` | 9.2s |
+| mz | `019f6f01-fba5-7141-a2ba-78cf8dc7a202` | 12.0s |
+| mzu | `019f6f01-fba6-7470-9400-e455f450e9dc` | 11.3s |
+
+Provenance: [`benchmarks/sessions/MANIFEST.json`](./benchmarks/sessions/MANIFEST.json)  
+Raw JSON dumps: [`benchmarks/sessions/*.json`](./benchmarks/sessions/)  
+Measure: `python benchmarks/run.py` → [`benchmarks/results/LATEST.md`](./benchmarks/results/LATEST.md)
+
+### Totals vs plain (live)
 
 | Mode | Tokens | Token saved | Char saved | Role |
 |------|-------:|------------:|-----------:|------|
-| **plain** | 752 | 0% | 0% | baseline agent prose |
-| **caveman** | 338 | **55.1%** | 49.3% | pure collapse |
-| **mz** | 319 | **57.6%** | 55.8% | collapse + 피식 1 |
-| **mzu** | 620 | **17.6%** | 29.5% | 난사 — humor tax |
+| **plain** | 758 | 0% | 0% | baseline agent session |
+| **caveman** | 587 | **22.6%** | 26.5% | pure collapse session |
+| **mz** | 586 | **22.7%** | 28.2% | collapse + 피식 session |
+| **mzu** | 1059 | **−39.7%** | −22.1% | 난사 session (longer) |
 
-**Takeaway:** `mz` ≈ caveman on length (often a bit tighter) **and** adds memory/humor.  
-`mzu` is **not** a compression mode — 피식 밀도 최적화. 토큰 아끼려면 `/mz`, 웃기려면 `/mzu`.
+**Takeaway (measured, not vibes):**
+- Live agents compress less aggressively than ideal skill demos (~23% not ~55%).
+- **`mz` ≈ `caveman` on tokens** and still lands a verdict stamp.
+- **`mzu` costs tokens** (+40% vs plain). Humor tax is real. Use for comedy, not billing.
 
-### Side-by-side (`02-integ-fail`)
+### Side-by-side (`02-integ-fail`, live text)
 
-**plain** (127 tok)
-
-```text
-실패한 통합 테스트 4개를 즉시 분류해야 합니다.
-동일한 원인인지, 코드 회귀인지, 환경 문제인지 확인하십시오.
-실패 로그와 재현 명령을 반드시 보존하고, 원인을 확인하기 전에 추측으로 수정하지 마십시오.
-skip으로 통과시킨 것처럼 보이게 만들지 마십시오.
-```
-
-**caveman** (60 tok · −52.8%)
+**plain** (127 tok) · subagent-plain
 
 ```text
-통합테스트 4개 분류.
-회귀 / 환경 / 동일원인 판별.
-로그·재현명령 보존.
-원인 전 수정 금지. skip 통과 금지.
+실패한 통합 테스트 4개를 즉시 분류해야 합니다. 동일한 원인인지, 코드 회귀인지, 환경 문제인지 확인하십시오. 실패 로그와 재현 명령을 반드시 보존하고, 원인을 확인하기 전에 추측으로 수정하지 마십시오. skip으로 통과시킨 것처럼 보이게 만들지 마십시오.
 ```
 
-**mz** (64 tok · −49.6%)
+**caveman** (88 tok · −30.7%) · subagent-caveman
 
 ```text
-통합테스트 4개 분류.
-회귀 / 환경 / 동일원인 판별.
-로그·재현명령 보존.
-감으로 패치? 컷.
-skip 승리법 금지.
+실패 통합 테스트 4개 즉시 분류 필요. 동일 원인·코드 회귀·환경 문제 여부 확인. 실패 로그·재현 명령 반드시 보존. 원인 확인 전 추측 수정 금지. skip으로 통과 위장 금지.
 ```
 
-**mzu** (109 tok · −14.2%)
+**mz** (84 tok · −33.9%) · subagent-mz
 
 ```text
-샤갈. 통합테스트 4명 사망 ㄹㅇ.
-회귀/환경/동일원인 판별 국룰 드가자.
-로그·재현 존버 보존. 감패치 각? 스불재 예약.
-컷 정배. skip 승리법 뇌절 금지. 야르 아님.
+실패 통합 테스트 4개 즉시 분류. 동일 원인 / 코드 회귀 / 환경 문제 가려라. 실패 로그·재현 명령 보존. 원인 전 추측 수정 금지. skip으로 통과 연출? 나가리.
 ```
 
-### Per-case token save
+**mzu** (168 tok · +32.3%) · subagent-mzu
+
+```text
+실패한 통합 테스트 4개 지금 당장 분류 드가자 야르. 동일 원인인지 / 코드 회귀인지 / 환경 문제인지 확인이 국룰 ㄹㅇ. 실패 로그랑 재현 명령 반드시 보존 밤티. 원인 확인 전에 추측 수정? 그건 나가리 컷 스불재. skip으로 통과한 척 보이게 만들기 손절 정배. 도파민 수정 욕구 샤갈 아자스 이왜진 금지.
+```
+
+### Per-case token save (live)
 
 | Case | caveman | mz | mzu |
 |------|--------:|---:|----:|
-| release-block | 54.5% | **62.1%** | 20.7% |
-| integ-fail | 52.8% | 49.6% | 14.2% |
-| flaky-windows | 54.5% | 54.5% | 8.1% |
-| perf-temptation | 59.7% | **61.2%** | 13.7% |
-| go-nogo-role | 59.4% | **62.3%** | 25.5% |
-| cache-bloat | 50.0% | **55.1%** | 22.1% |
+| release-block | 24.0% | 24.0% | −28.7% |
+| integ-fail | 30.7% | **33.9%** | −32.3% |
+| flaky-windows | 24.2% | 20.2% | −57.6% |
+| perf-temptation | 17.7% | **25.5%** | −39.7% |
+| go-nogo-role | 14.2% | 5.7% | −59.4% |
+| cache-bloat | 23.7% | 23.0% | −30.4% |
 
-Variants live under [`benchmarks/variants/`](./benchmarks/variants/).
+Full texts: [`benchmarks/variants/`](./benchmarks/variants/).
 
 ## Quick install
 
@@ -187,8 +186,9 @@ skills/mz-caveman/            # full skill
 skills/mz/                    # Codex alias → $mz (default)
 skills/mzu/                   # Codex alias → $mzu (ultra)
 agents/openai.yaml            # Codex UI for mz-caveman
-benchmarks/                   # plain/caveman/mz/mzu + run.py
-benchmarks/results/LATEST.md  # latest compression table
+benchmarks/                   # fixtures + live variants + run.py
+benchmarks/sessions/          # subagent IDs + raw JSON (proof)
+benchmarks/results/LATEST.md  # measured table
 INSTALL.md
 LICENSE
 ```

@@ -2,29 +2,29 @@
 
 - Encoding: `cl100k_base`
 - Cases: 6
-- Generated: `2026-07-17T07:36:14.059305+00:00`
+- Generated: `2026-07-17T07:37:50.154906+00:00`
 
-Variants are curated reference rewrites for style bench, not live model samples. Token counts use OpenAI cl100k_base.
+Primary variants come from live parallel subagent sessions (see benchmarks/sessions/MANIFEST.json). Token counts use OpenAI cl100k_base via tiktoken.
 
 ## Totals vs plain
 
 | Mode | Tokens | Chars | Token saved | Char saved | vs plain (tokens) |
 |------|-------:|------:|------------:|-----------:|------------------:|
-| **plain** | 752 | 880 | 0.0% | 0.0% | 100.00% |
-| **caveman** | 338 | 446 | 55.1% | 49.3% | 44.95% |
-| **mz** | 319 | 389 | 57.6% | 55.8% | 42.42% |
-| **mzu** | 620 | 620 | 17.6% | 29.5% | 82.45% |
+| **plain** | 758 | 884 | 0.0% | 0.0% | 100.00% |
+| **caveman** | 587 | 650 | 22.6% | 26.5% | 77.44% |
+| **mz** | 586 | 635 | 22.7% | 28.2% | 77.31% |
+| **mzu** | 1059 | 1079 | -39.7% | -22.1% | 139.71% |
 
 ## Per case
 
 | Case | plain | caveman | mz | mzu | caveman save | mz save | mzu save |
 |------|------:|--------:|---:|----:|-------------:|--------:|---------:|
-| `01-release-block` | 145 | 66 | 55 | 115 | 54.5% | 62.1% | 20.7% |
-| `02-integ-fail` | 127 | 60 | 64 | 109 | 52.8% | 49.6% | 14.2% |
-| `03-flaky-windows` | 99 | 45 | 45 | 91 | 54.5% | 54.5% | 8.1% |
-| `04-perf-temptation` | 139 | 56 | 54 | 120 | 59.7% | 61.2% | 13.7% |
-| `05-go-nogo-role` | 106 | 43 | 40 | 79 | 59.4% | 62.3% | 25.5% |
-| `06-cache-bloat` | 136 | 68 | 61 | 106 | 50.0% | 55.1% | 22.1% |
+| `01-release-block` | 150 | 114 | 114 | 193 | 24.0% | 24.0% | -28.7% |
+| `02-integ-fail` | 127 | 88 | 84 | 168 | 30.7% | 33.9% | -32.3% |
+| `03-flaky-windows` | 99 | 75 | 79 | 156 | 24.2% | 20.2% | -57.6% |
+| `04-perf-temptation` | 141 | 116 | 105 | 197 | 17.7% | 25.5% | -39.7% |
+| `05-go-nogo-role` | 106 | 91 | 100 | 169 | 14.2% | 5.7% | -59.4% |
+| `06-cache-bloat` | 135 | 103 | 104 | 176 | 23.7% | 23.0% | -30.4% |
 
 ## Reading guide
 

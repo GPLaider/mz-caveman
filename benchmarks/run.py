@@ -117,8 +117,9 @@ def main() -> int:
             "cases": cases,
             "modes": list(MODES),
             "note": (
-                "Variants are curated reference rewrites for style bench, "
-                "not live model samples. Token counts use OpenAI cl100k_base."
+                "Primary variants come from live parallel subagent sessions "
+                "(see benchmarks/sessions/MANIFEST.json). Token counts use "
+                "OpenAI cl100k_base via tiktoken."
             ),
         },
         "summary": summary,

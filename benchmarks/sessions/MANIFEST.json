@@ -1,0 +1,32 @@
+{
+  "kind": "live-subagent-4way",
+  "generated_at": "2026-07-17T07:37:41.826981+00:00",
+  "orchestrator": "grok-parent",
+  "method": "spawn_subagent x4 parallel general-purpose read-only",
+  "modes": {
+    "plain": {
+      "subagent_id": "019f6f01-fba3-7451-b844-fa21c62ca87b",
+      "agent": "subagent-plain",
+      "duration_ms": 5468,
+      "tool_calls": 0
+    },
+    "caveman": {
+      "subagent_id": "019f6f01-fba4-7082-b65d-3585db9b201e",
+      "agent": "subagent-caveman",
+      "duration_ms": 9194,
+      "tool_calls": 0
+    },
+    "mz": {
+      "subagent_id": "019f6f01-fba5-7141-a2ba-78cf8dc7a202",
+      "agent": "subagent-mz",
+      "duration_ms": 12014,
+      "tool_calls": 1
+    },
+    "mzu": {
+      "subagent_id": "019f6f01-fba6-7470-9400-e455f450e9dc",
+      "agent": "subagent-mzu",
+      "duration_ms": 11293,
+      "tool_calls": 0
+    }
+  }
+}
