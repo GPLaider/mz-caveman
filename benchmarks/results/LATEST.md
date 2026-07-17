@@ -31,6 +31,8 @@ Primary variants come from live parallel subagent sessions (see benchmarks/sessi
 - **plain**: normal agent prose (baseline)
 - **caveman**: pure collapse, no MZ stamps
 - **mz**: collapse + one 피식 verdict (identity)
-- **mzu**: comedy spam — may use *more* tokens than mz/caveman; humor tax
+- **mzu**: comedy spam — often *more* tokens; **spam tax**, not humor tax
+- **mz** proves short+funny: collapse first, one verdict replaces long prose
 
-If mzu tokens > plain: expected for chaos mode. Ultra optimizes 피식 density, not always length.
+If mzu tokens > plain: expected for chaos mode. Ultra optimizes 피식 density, not length.
+Short+funny target = `mz` (or disciplined one-liner), not `mzu`.

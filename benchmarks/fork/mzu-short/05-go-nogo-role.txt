@@ -1,0 +1,1 @@
+Go/No-Go 주인=RM·On-call. 기여자 강행 배포 나가리. 근거: 테스트·위험·Rollback.

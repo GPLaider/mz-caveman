@@ -61,8 +61,9 @@ Measure: `python benchmarks/run.py` → [`benchmarks/results/LATEST.md`](./bench
 
 **Takeaway (measured, not vibes):**
 - Live agents compress less aggressively than ideal skill demos (~23% not ~55%).
-- **`mz` ≈ `caveman` on tokens** and still lands a verdict stamp.
-- **`mzu` costs tokens** (+40% vs plain). Humor tax is real. Use for comedy, not billing.
+- **짧게 + 웃기기 = 가능.** 그게 **`mz`**: caveman과 토큰 동급(−22.7%)인데 판정 한 줄로 피식.
+- **유머세 ≠ 웃음세.** 세금은 **`mzu` 난사**(밈을 문장 위에 *쌓음*, +40%). 밈으로 긴 문장을 *대체*하면 토큰 내려감.
+- 규칙: 웃기려면 먼저 줄여라. 줄인 자리에 판정 1방. 줄이지 않고 밈만 뿌리면 청구서 옴.
 
 ### Side-by-side (`02-integ-fail`, live text)
 

@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-07-17T07:57:55.678049+00:00",
+  "tokens": {
+    "plain": 752,
+    "freeze-mzu": 1059,
+    "mzu-short": 326,
+    "mzf": 468
+  },
+  "token_vs_plain": {
+    "freeze-mzu": -40.8,
+    "mzu-short": 56.6,
+    "mzf": 37.8
+  },
+  "laugh_score_12": {
+    "freeze-mzu": 12,
+    "mzu-short": 7,
+    "mzf": 9
+  },
+  "laugh_detail_mzu_short": {
+    "01": 2,
+    "02": 1,
+    "03": 1,
+    "04": 2,
+    "05": 1,
+    "06": 0
+  },
+  "gate": {
+    "rule": "patch ultra only if laugh_total>=10/12 AND min_case>=1 AND tokens<plain",
+    "laugh_total_mzu_short": 7,
+    "min_case": 0,
+    "tokens_ok": true,
+    "pass": false,
+    "decision": "NO_PATCH_ULTRA",
+    "reason": "mzu-short compresses but laugh drops (esp 06 dry, 02/05 weak). Ultra identity = freeze laugh. Nerf forbidden."
+  },
+  "subagents": {
+    "mzf": "019f6f14-34ed-7753-ab27-6007d5a19d91",
+    "mzu-control": "019f6f14-34ee-7960-bff6-070b1f97d13e",
+    "mzu-short": "019f6f14-8c14-7d62-9bd7-b1e47cd914a0"
+  }
+}
