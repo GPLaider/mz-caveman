@@ -1,0 +1,4 @@
+최적화(자칭).
+결과: CPU 헬창, RAM 벌크업.
+원인 후보: cache key architecture 누락.
+캐시 손절. 테스트 38 재통과.
