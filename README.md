@@ -103,7 +103,7 @@ See [INSTALL.md](./INSTALL.md).
 
 1. 문장 삭제 → 2. 중복 삭제 → 3. 구조 압축 → 4. 판정/밈 → 5. 조사 삭제  
 
-- **mz:** step4 = 0~1  
+- **mz:** step4 = 스탬프 1 (필수)  
 - **mzu:** step4 = replace (짧게 유지)  
 - **mze:** step4 = stack (난사)
 
